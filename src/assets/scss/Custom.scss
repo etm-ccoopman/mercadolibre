@@ -2,6 +2,10 @@ $yellow: #fff159;
 $gray: #ebebeb;
 $white: #fff;
 $dark-gray: #6e7476;
+$strong-dark-gray: #54585a;
+$blue: #0d6efd;
+$blue-hover: #0f58c7;
+$transition-speed: 1s;
 
 .custom_navbar {
     background-color: $yellow;
@@ -12,8 +16,15 @@ $dark-gray: #6e7476;
         color: $dark-gray;
     }
 
+    .custom_search_btn:not(:hover) {
+        background-color: $gray;
+        color: $dark-gray;
+        transition: $transition-speed;
+    }
+
     .custom_search_btn:hover {
         color: $white;
+        transition: $transition-speed;
     }
 
     .custom_search_input {
@@ -24,4 +35,68 @@ $dark-gray: #6e7476;
 .custom_bg {
     background-color: $gray;
     min-height: 100vh;
+}
+
+.home {
+    .custom_circle_icon:hover {
+        padding: 20px;
+        border-radius: 50%;
+        background: $blue-hover;
+        transition: $transition-speed;
+        cursor: pointer;
+    }
+
+    .custom_circle_icon:not(:hover) {
+        padding: 20px;
+        border-radius: 50%;
+        background: $blue;
+        transition: $transition-speed;
+    }
+
+    .fs-5:hover {
+        color: $blue-hover;
+        transition: 1s;
+        cursor: pointer;
+    }
+
+    .fs-5:not(:hover) {
+        color: $dark-gray;
+        transition: 1s;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .fs-4 {
+        color: $blue-hover;
+        font-weight: 600;
+    }
+}
+
+.items {
+
+    .fs-2{
+        color: $strong-dark-gray;
+    }
+
+    .fs-5 {
+        color: $dark-gray;
+    }
+
+    .fs-2 {
+        font-weight: 600;
+    }
+}
+
+.details {
+
+    .fs-1 {
+        color: $strong-dark-gray;
+        font-weight: 700;
+    }
+}
+
+.pointer {
+    cursor: pointer;
 }

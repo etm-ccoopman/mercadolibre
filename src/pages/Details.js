@@ -10,10 +10,10 @@ import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function Details() {
     return (
-        <div className="text-start">
+        <div className="text-start details">
             <Container>
                 <Breadcrumbs page="DETAILS" />
-                <Card className="mt-5">
+                <Card className="mt-5 animate__animated animate__fadeIn animate__slow">
                     <DetailItem />
                 </Card>
             </Container>

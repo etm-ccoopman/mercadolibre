@@ -23,6 +23,12 @@ export default function Header() {
             search: `?search=${keyword}`,
         });
     }
+    
+    const sendForm = (e) => {
+        if(e.key === 'Enter'){
+            search();
+        }
+    }
 
     return (
         <div>
@@ -41,6 +47,7 @@ export default function Header() {
                                 className="custom_search_input"
                                 value={keyword}
                                 onChange={(e) => setKeyword(e.target.value)}
+                                onKeyDown={sendForm} 
                             />
                             <Button className="custom_search_btn" onClick={search}>
                                 <FontAwesomeIcon icon={faMagnifyingGlass} />

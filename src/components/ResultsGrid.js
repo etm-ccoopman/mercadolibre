@@ -8,6 +8,9 @@ import {
 } from 'reactstrap';
 import { API } from '../helpers/axios';
 import { useSearchParams, useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
+import { formatNumber } from '../helpers/Utils';
 
 export default function ResultsGrid() {
     const navigate = useNavigate();
@@ -38,16 +41,21 @@ export default function ResultsGrid() {
                 res.data.data.items.map((e, i) => {
                     list.push(
                         <Fragment key={i}>
-                            <Row>
-                                <Col xl={3}>
-                                    <img src={e.picture} className="img-fluid" width={180} />
+                            <Row className="mt-2">
+                                <Col xl={3} className="text-center">
+                                    <img src={e.picture} className="img-fluid pointer" width={180} onClick={() => details(e.id)}/>
                                 </Col>
                                 <Col xl={6}>
-                                    <p>$ {e.price.amount}</p>
-                                    <p>{e.title}</p>
+                                    <p className="fs-2 pointer" onClick={() => details(e.id)}>$ {formatNumber(e.price.amount)}</p>
+                                    <p className="fs-5 pointer" onClick={() => details(e.id)}>{e.title}</p>
                                 </Col>
-                                <Col xl={3}>
-                                    <Button color="primary" onClick={() => details(e.id)}>Ver detalle</Button>
+                                <Col xl={3} className="text-center">
+                                    <div className="mt-3">
+                                        <Button color="primary" size="lg" className="mt-5" onClick={() => details(e.id)}>
+                                            <FontAwesomeIcon icon={faArrowRightLong} className="me-2" />
+                                            Ver detalle
+                                        </Button>
+                                    </div>
                                 </Col>
                             </Row>
                             <hr />
