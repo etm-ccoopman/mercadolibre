@@ -1,21 +1,16 @@
-import React, { Fragment } from 'react';
-import {
-    Container,
-    Card,
-    Row,
-    Col,
-} from 'reactstrap';
-import ResultsGrid from '../components/ResultsGrid';
-import Breadcrumbs from '../components/Breadcrumbs';
+import React, { useState } from 'react';
+import { Container, Card } from 'reactstrap';
+import Breadcrumbs from '../components/General/Breadcrumbs';
+import ItemsGrid from '../components/Items/ItemsGrid';
 
-export default function App() {
+export default function Items() {
+    const [categories, setCategories] = useState([]);
+    
     return (
         <div className="text-start items">
             <Container>
-                <Breadcrumbs page="ITEMS" />
-                <Card className="mt-5 animate__animated animate__fadeIn animate__slow">
-                    <ResultsGrid />
-                </Card>
+                <Breadcrumbs page="ITEMS" categories={categories}/>
+                <ItemsGrid setCategories={setCategories}/>
             </Container>
         </div>
     );

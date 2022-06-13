@@ -38,6 +38,7 @@ $transition-speed: 1s;
 }
 
 .home {
+
     .custom_circle_icon:hover {
         padding: 20px;
         border-radius: 50%;
@@ -76,7 +77,7 @@ $transition-speed: 1s;
 
 .items {
 
-    .fs-2{
+    .fs-2 {
         color: $strong-dark-gray;
     }
 
@@ -99,4 +100,18 @@ $transition-speed: 1s;
 
 .pointer {
     cursor: pointer;
+}
+
+.header {
+
+    .custom_user_icon:hover {
+        color: $blue-hover;
+        transition: $transition-speed;
+        cursor: pointer;
+    }
+
+    .custom_user_icon:not(:hover) {
+        color: $blue;
+        transition: $transition-speed;
+    }
 }

@@ -1,21 +1,14 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import {
-    Container,
-    Card,
-    Row,
-    Col,
-    Button,
-} from 'reactstrap';
-import { API } from '../helpers/axios';
-import { useNavigate, useParams } from 'react-router-dom';
-import { formatNumber } from '../helpers/Utils';
+import { Container, Row, Col, Button, Card } from 'reactstrap';
+import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { API } from '../../helpers/axios';
+import { formatNumber } from '../../helpers/Utils';
+import LoadingScreen from '../../components/General/LoadingScreen';
 
-export default function DetailItem() {
+export default function DetailItem(props) {
     const { id } = useParams();
-
-    const navigate = useNavigate();
     const [item, setItem] = useState([]);
     const [loading, setLloading] = useState(true);
 
@@ -28,6 +21,7 @@ export default function DetailItem() {
         const res = await API.get(`/api/items/${id}`);
 
         if (res.data.state) {
+            props.setCategories(res.data.data.item.categories);
             if (res.data.data.item) {
                 setItem(
                     <Fragment>
@@ -61,8 +55,15 @@ export default function DetailItem() {
     }
 
     return (
-        <div>
-            {item}
-        </div>
+        <Fragment>
+            {
+                (loading) ?
+                    <LoadingScreen title="Cargando detalle..."/>
+                    :
+                    <Card className="animate__animated animate__fadeIn animate__slow">
+                        {item}
+                    </Card>
+            }
+        </Fragment>
     );
 }
