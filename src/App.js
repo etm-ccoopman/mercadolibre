@@ -1,27 +1,16 @@
-import logo from './logo.svg';
-import './App.scss';
+import React from 'react';
+import './assets/scss/App.scss';
+import './assets/scss/Custom.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'animate.css';
+import AllRoutes from './routes/AllRoutes';
+import '@fortawesome/fontawesome-svg-core/styles.css'
 
-function App() {
+export default function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App custom_bg">
+      <AllRoutes />
     </div>
   );
 }
-
-export default App;

@@ -1,0 +1,27 @@
+$yellow: #fff159;
+$gray: #ebebeb;
+$white: #fff;
+$dark-gray: #6e7476;
+
+.custom_navbar {
+    background-color: $yellow;
+
+    .custom_search_btn {
+        background-color: $gray;
+        border: 1px solid $gray;
+        color: $dark-gray;
+    }
+
+    .custom_search_btn:hover {
+        color: $white;
+    }
+
+    .custom_search_input {
+        border: 1px solid $gray;
+    }
+}
+
+.custom_bg {
+    background-color: $gray;
+    min-height: 100vh;
+}
